@@ -1,0 +1,71 @@
+.cart_containar{
+  width: 100%;
+  padding: 10px;
+}
+/* CART List SECTION */
+.cart_list{
+  width: 100%;
+}
+/* CART SECTION */
+.cart{
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  background: #1a3b40;
+  margin-top: 10px;
+}
+
+/* CART > CART_DETELS SECTION */
+.cart_dtls{
+  width: 100;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+}
+.cart_dtls img{
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 3px;
+}
+
+/* CART > CART OPTION SECTION */
+.cart_options{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+/* CART > CART/OPTION > COUNT_FOR_BUY SECTION */
+.cart_options .count_for_bye{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.count_for_bye img{
+  height: 30px;
+  width: 30px;
+}
+/* CART > CART/OPTION > BTNS SECTION */
+.cart_options .btns{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.btns img{
+  height: 30px;
+  width: 30px;
+}
+
+@media (width >= 500px){
+  .cart_list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 500px);
+    gap: 10px;
+    justify-content: center;
+  }
+}

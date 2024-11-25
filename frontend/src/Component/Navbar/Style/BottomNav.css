@@ -1,0 +1,28 @@
+.bottom_nav_containar
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  background: #161f30;
+}
+.bottom_nav_containar .item
+{
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  font-family: Monospace;
+}
+.bottom_nav_containar .item img
+{
+  height: 30px;
+  width: 30px;
+}

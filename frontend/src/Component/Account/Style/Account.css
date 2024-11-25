@@ -1,0 +1,32 @@
+.account_containar
+{
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  animation: Start .5s linear 1;
+}
+.account_containar ul li 
+{
+  list-style: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid white;
+  line-height: 40px;
+}
+.add_product{
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+@keyframes Start {
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}

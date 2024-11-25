@@ -1,0 +1,13 @@
+.search_bar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.search_bar input{
+  height: 50px;
+  width: 90%;
+  border-radius: 50px;
+  padding: 0 10px;
+  margin-top: 10px;
+  color: black;
+}

@@ -1,0 +1,52 @@
+.selected_containar{
+  min-height: 100vh;
+  width: 100%;
+}
+.selected_product{
+  height: auto;
+  width: 100%;
+}
+.selected_product .info{
+  width: 100%;
+  padding: 10px;
+}
+.info img{
+  height: 300px;
+  width: calc(100% - 20px);
+  margin: 10px;
+  object-position: center;
+  object-fit: contain;
+}
+.info .price_shear {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.info .price_shear img{
+  height: 30px;
+  width: 30px;
+}
+.name{
+  margin: 10px;
+}
+.info button{
+  padding: 10px 20px;
+  background-color: #ee1010;
+  border: none;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.more_info {
+  width: 100%;
+}
+.more_info table{
+  width: 100%;
+  color: white;
+}
+.more_info table td,th{
+  padding: 10px;
+}
