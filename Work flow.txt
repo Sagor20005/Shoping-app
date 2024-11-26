@@ -1,0 +1,14 @@
+Work flow for this app
+this is a shoping app created by jakateya halder
+resorce:
+1: backend(node,express)
+    1: image upload (imagekit)
+    2: database (mongodb/mongoose)
+2: frontend(react)
+    1: state manegment(@reduxjs/toolkit)
+
+build process and compliting state:
+1: product add,read,(...)
+2: add to cart (...)
+3: accound create,login,logout (ok)
+4: is user is sellar to showing add product add ntn (ok)

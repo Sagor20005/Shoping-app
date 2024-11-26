@@ -57,6 +57,10 @@
   margin-top: 10px;
   font-size: 16px;
 }
+.form_containar a{
+  text-decoration: none;
+  color: #a1d3db;
+}
 .alert{
   color: red;
   margin-top: 5px;

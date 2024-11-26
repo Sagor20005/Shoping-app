@@ -69,6 +69,7 @@ const Login = ()=>{
             <p className="alert">{passwordError}</p>
             <button type="submit">Log In!</button>
           </form>
+          <Link to="/">Go to Home Page</Link>
           <Link to="/signup">Create an account</Link>
         </div>
       }
