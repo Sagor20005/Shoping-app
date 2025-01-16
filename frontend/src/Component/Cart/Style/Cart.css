@@ -17,7 +17,7 @@
 
 /* CART > CART_DETELS SECTION */
 .cart_dtls{
-  width: 100;
+  width: 100%;
   display: flex;
   justify-content: start;
   gap: 20px;
@@ -47,8 +47,10 @@
   align-items: center;
 }
 .count_for_bye img{
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  
 }
 /* CART > CART/OPTION > BTNS SECTION */
 .cart_options .btns{

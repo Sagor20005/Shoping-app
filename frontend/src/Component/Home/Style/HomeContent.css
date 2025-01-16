@@ -9,14 +9,13 @@
 {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill,200px);
+  grid-template-columns: repeat(auto-fill,calc(50% - 5px));
   gap: 10px;
   justify-content: center;
 }
 .product 
 {
   height: 300px;
-  width: 200px;
   border-radius: 5px;
   background: #132c33;
 }
@@ -58,3 +57,9 @@ h3{
     opacity: 1;
   }
 } */
+
+@media(width >= 500px){
+  .product_list{
+    grid-template-columns: repeat(auto-fill,170px);
+  }
+}

@@ -1,0 +1,23 @@
+.category{
+  height: 100%;
+  width: 100%;
+}
+.commingSoon{
+  width: 90%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #7bbdcb;
+  color: black;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 50%;
+  transform: translateY(-50%);
+  
+}
+@media(width >= 500px){
+  .commingSoon{
+    width: 400pxA;
+  }
+}

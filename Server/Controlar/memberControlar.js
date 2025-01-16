@@ -74,7 +74,8 @@ const findAmember = async (req,resp)=>{
           isSellar: {
             isSellar: response.isSellar,
             _id: response._id,
-            name: response.name
+            name: response.name,
+            addressBook:response.address
           }
         })
       }else{
@@ -92,10 +93,53 @@ const findAmember = async (req,resp)=>{
   }
 }
 
+/// handleAddress
+const handleAddress = async (req,resp)=>{
+  try{
+    const Id = req.body.id
+    const address = req.body.address
+    console.log(Id,address)
+    const member = await memberColl.findOne({_id:Id})
+    if(member){
+      member.address.push(address)
+      const saved = await member.save()
+      if(saved){
+        resp.status(200).json({
+          state:true,
+          address:member.address
+        })
+      }
+    }
+  }catch(err){
+    console.log(err)
+  }
+}
 
+const addressDelete = async (req,resp)=>{
+  try{
+    const id = req.body.id
+    const addressId = req.body.address
+    const member = await memberColl.findOne({_id:id})
+    if(member){
+      const index = member.address.findIndex((addr)=> addr._id === addressId)
+      member.address.splice(index,1)
+      const saved = await member.save()
+      if(saved){
+        resp.status(200).json({
+          state:true,
+          address:member.address
+        })
+      }
+    }
+  }catch(err){
+    console.log(err)
+  }
+}
 
 
 module.exports = {
   AddMember,
   findAmember,
+  handleAddress,
+  addressDelete
 }

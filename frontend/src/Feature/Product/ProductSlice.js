@@ -8,9 +8,9 @@ const initialState = {
 }
 
 export const getProducts = createAsyncThunk("product/getProducts",async ()=>{
-  let result = await fetch("http://localhost:7000/product/")
-  result = await result.json()
-  return result
+    let result = await fetch("http://localhost:7000/product/")
+    result = await result.json()
+    return result
 })
 
 const productSlice = createSlice({

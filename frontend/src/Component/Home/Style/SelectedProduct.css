@@ -50,3 +50,6 @@
 .more_info table td,th{
   padding: 10px;
 }
+.more_info table tr{
+  border-bottom: 1px solid white;
+}

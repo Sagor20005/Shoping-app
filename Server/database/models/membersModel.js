@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 
+
 const membersSchema = mongoose.Schema({
   name:{
     type:String,
@@ -20,7 +21,8 @@ const membersSchema = mongoose.Schema({
   },
   isSellar:{
     type:Boolean
-  }
+  },
+  address:[]
 },{timestamps:true})
 
 const membersModel = mongoose.model("member",membersSchema)

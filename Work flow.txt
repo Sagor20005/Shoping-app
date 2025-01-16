@@ -9,6 +9,6 @@ resorce:
 
 build process and compliting state:
 1: product add,read,(...)
-2: add to cart (...)
+2: add to cart add, (...)
 3: accound create,login,logout (ok)
 4: is user is sellar to showing add product add ntn (ok)

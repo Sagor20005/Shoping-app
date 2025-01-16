@@ -2,6 +2,7 @@ const ImageKit = require("../utilities/imagekit.upload")
 const productColl = require("../database/models/productModel")
 
 const cartColl = require("../database/models/cartModel")
+const orderColl = require("../database/models/orderModel")
 
 const addProduct = (req, resp)=> {
   const file = req.files ? req.files.file: null
@@ -77,6 +78,26 @@ const getAllProduct = async (req,resp)=>{
   }
 }
 
+//get a product
+const getProduct = async (req,resp)=>{
+  try{
+    const id = req.params.id
+    const result = await productColl.findOne({_id:id})
+    if(result){
+      resp.status(200).json({
+        state:true,
+        data: result
+      })
+    }
+  }catch(err){
+    resp.status(500).json({
+      state:false,
+      msg:"Server error!"
+    })
+  }
+}
+
+
 
 // new cart creator controlar
 const createCart = async (req,resp)=>{
@@ -115,9 +136,131 @@ const createCart = async (req,resp)=>{
 }
 
 
+// Get all carts
+const getAllCart = async (req,resp)=>{
+  try{
+    const id = req.params.id;
+    const carts = await cartColl.find({castumarId: id})
+    console.log(carts)
+    if(carts && carts.length > 0){
+      resp.send(carts)
+    }
+  }catch(err){
+    resp.send(err)
+  }
+}
+
+// handle cart quantity
+const QuantityHandle = async (req,resp)=>{
+  let quantity = req.body.quantity;
+  const id = req.body.id;
+  const action = req.body.action;
+  try{
+    if(action === "increase"){
+      const update = await cartColl.findOneAndUpdate({_id:id},{quantity:++quantity})
+      if(update && update._id){
+        resp.status(200).json({state:true})
+      }
+    }else if(action === "decrease"){
+      if(quantity > 0){
+        const update = await cartColl.findOneAndUpdate({_id:id},{quantity:--quantity})
+        if(update && update._id){
+          resp.status(200).json({state:true})
+        }
+      }
+    }
+  }catch(err){
+    resp.status(500).json({
+      state:false,
+      msg:err.message
+    })
+  }
+}
+
+// delete a cart 
+const DeleteCart = async (req,resp)=>{
+  const id = req.body.id;
+  try{
+    const result = await cartColl.findOneAndDelete({_id:id})
+    if(result && result._id){
+      console.log(result)
+      resp.status(200).json({
+        state:true,
+      })
+    }else{
+     resp.status(500).json({
+      state:false,
+      msg:"Can't delete!"
+    }) 
+    }
+  }catch(err){
+    resp.status(500).json({
+      state:false,
+      msg:err.message
+    })
+  }
+}
+
+
+// PlaceOrder
+const PlaceOrder = async (req,resp)=>{
+  const order = req.body;
+  try{
+    const newOrder = new orderColl(order)
+    const saved = await newOrder.save()
+    if(saved && saved._id){
+      resp.status(500).json({
+        state:true
+      })
+    }else{
+      resp.status(500).json({
+        state:false,
+        msg:"can't save!"
+      })
+    }
+  }catch(err){
+    resp.status(500).json({
+      state:false,
+      msg:err.message
+    })
+  }
+}
+
+// get all order 
+const OrderList = async (req,resp)=>{
+  const id = req.params.id;
+  try{
+    if(id){
+      const orders = await orderColl.find({"castumar.id":id})
+      if(orders && orders.length > 0){
+        resp.status(500).json({
+          state:true,
+          data:orders
+        })
+      }else{
+        resp.status(500).json({
+          state:false,
+          msg:"You have 0 order!"
+        })
+      }
+    }
+  }catch(err){
+    resp.status(500).json({
+      state:false,
+      msg:err.message
+    })
+  }
+}
+
 
 module.exports = {
   addProduct,
   getAllProduct,
-  createCart
+  createCart,
+  getAllCart,
+  getProduct,
+  QuantityHandle,
+  DeleteCart,
+  PlaceOrder,
+  OrderList
 }

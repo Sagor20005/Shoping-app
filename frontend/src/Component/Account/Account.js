@@ -27,6 +27,7 @@ const Account = ()=>{
         
         try{
           removeCookie(process.env.REACT_APP_NAME)
+          localStorage.removeItem(process.env.REACT_APP_NAME)
           Navigate("/")
         }catch(err){
           Swal.fire({
@@ -46,12 +47,13 @@ const Account = ()=>{
         <Navigation name={"Account"} address={"/"} />
         <ul>
           <li>Profile</li>
-          <li>Make me sellar</li>
-          <li>My Products</li>
+          {!isSellar && <li>Make me sellar</li>}
+          {isSellar && <li>My Products</li>}
+          <li onClick={()=>Navigate("/myorder")}>My Order</li>
+          <li onClick={()=>Navigate("/addressbook")} >Address Book</li>
+          {isSellar && <li onClick={()=>Navigate("/new-product")}>Add product</li>}
           <li onClick={handleLogout}>LogOut</li>
         </ul>
-        
-        {isSellar ? <img onClick={()=>Navigate("/new-product")} className="add_product" src={Icons.plus} alt="add"/> : null}
         
       </div>
     </>

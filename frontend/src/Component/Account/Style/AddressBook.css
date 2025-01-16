@@ -1,0 +1,60 @@
+.addressBookContainar{
+  width: 100%;
+  padding: 10px;
+}
+#headerTxt{
+  text-align: center;
+  margin: 20px 0;
+}
+.addedAddressBox{
+  width: 100%;
+}
+.addedAddressBox div , #creatingAddrs{
+  width: 100%;
+  
+  border-radius: 5px;
+  background: #7c7864;
+  margin-bottom: 5px;
+  padding: 5px;
+  position: relative;
+  padding-right: 20%;
+}
+.addedAddressBox div button{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50px;
+  background: white;
+  color: black;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.newAddressBox select{
+  height: 40px;
+  width: 100px;
+  background: #7c7864;
+  color: black;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+#moreAddress{
+  height: 80px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  color: black;
+}
+.newAddressBox button{
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 40px;
+  background: red;
+  color: white;
+  font-size: 16px;
+  margin: 5px;
+}

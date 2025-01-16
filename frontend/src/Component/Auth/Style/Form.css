@@ -65,3 +65,9 @@
   color: red;
   margin-top: 5px;
 }
+
+@media (width >= 500px){
+  .form_containar form{
+    width: 500px;
+  }
+}
