@@ -7,6 +7,8 @@ const Login = ()=>{
   const [,setCookie] = useCookies([process.env.REACT_APP_NAME])
   const Navigate = useNavigate()
   
+  const [ lodding, setLodding] = useState(false)
+  
   // empty & error fields state
   const [usernameError, setUsername] = useState(null)
   const [passwordError, setPassword] = useState(null)
@@ -14,14 +16,14 @@ const Login = ()=>{
   // handle submit 
   const Submit = async (e)=>{
     e.preventDefault()
+    setLodding(true)
     const username = e.target.username.value
     const password = e.target.password.value
     if(username && password){
     try{
       let response = await fetch(`${process.env.REACT_APP_API_URL}/member/${username}/${password}`)
-      console.log(response)
       response = await response.json()
-      console.log(response)
+      setPassword(false)
       if(response && response.state){
         setCookie(`${process.env.REACT_APP_NAME}`, response.jwtToken, {maxAge: 60*60*2})
         localStorage.setItem(`${process.env.REACT_APP_NAME}`,JSON.stringify(response.isSellar))
@@ -38,7 +40,6 @@ const Login = ()=>{
         setPassword(fields.password ? fields.password : null)
       }
     }catch(err){
-      console.log(err)
       Swal.fire({
         title:"Error!",
         text:err.message,
@@ -67,7 +68,7 @@ const Login = ()=>{
             <p className="alert">{usernameError}</p>
             <input onChange={changeHandler} type="password" placeholder="Enter password" name="password"/>
             <p className="alert">{passwordError}</p>
-            <button type="submit">Log In!</button>
+            <button type="submit">{lodding ? "Lodding..":"Log In!"}</button>
           </form>
           <Link to="/">Go to Home Page</Link>
           <Link to="/signup">Create an account</Link>
